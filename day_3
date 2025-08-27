@@ -1,0 +1,39 @@
+#Introduction to the program message, including \n for the new line.
+
+print("Welcome to the treasure hunt game. \nYour mission is to make the correct decisions to win." )
+
+print("You're at a crossroad, where do you want to go left or right? ")
+
+#Our first decision put into a variable. Using .lower at the end so its not caps sensitive.
+#This first question starts our game out. 
+
+decision = input("left or right ").lower()
+
+#Here is our if statement to keep our game going
+#There is one initial if statement with two nested statements inbetween.  
+#In our else statements anything typed in except the answer we want to win will effectively end the game
+
+if decision == "left":
+    decision_2 = input('You\'ve come to a lake '
+                       'There is an island in the middle of it'
+                       'Type "wait" to wait for a boat'
+                       'Type "swim" to swim across ').lower()
+    if decision_2 == "wait":
+        decision_3 = input('You arrive unharmed '
+                           'Now there are three doors'
+                           'Which one one would you select'
+                           'red, blue or yellow ').lower()
+        if decision_3 == "red":
+            print("Its a room full of fire. Game over")
+        elif decision_3 == "blue":
+            print('You\'ve won the game.')
+        elif decision_3 == "yellow": print("You enter a room full of beasts. Game Over")
+
+        else:
+            print('You chose a door that doesnt exist.')
+
+    else:
+        print ("You were eaten by a shark")
+
+else:
+    print("game over")
