@@ -1,0 +1,81 @@
+import random
+
+#ROCK PAPER SCISSORS GAME
+#We have the ASCII art to identify and visually determine the computer and human selection.
+
+rock = ("""
+    _______
+---'   ____)
+      (_____)
+      (_____)
+      (____)
+---.__(___)
+""")
+
+paper = ("""
+     _______
+---'    ____)____
+           ______)
+          _______)
+         _______)
+---.__________)
+""")
+
+scissors = ("""
+    _______
+---'   ____)____
+          ______)
+       __________)
+      (____)
+---.__(___)
+""")
+
+#This is the introduction to the game.
+
+print("Welcome to the paper rock scissors challenge. You will face the computer for the title of champion")
+
+#Here we have the variable of choices, which is a list of our ASCII art.
+
+choices = [rock, paper, scissors]
+
+#Here are our inputs, combining an if statement to have some type of control over the input. If the number is greater than 0 but less than 2
+#our code will print.
+
+human_choice = int(input("What do you choose? Type 0 for Rock, 1 for Paper, or 2 for Scissor "))
+if human_choice >= 0 and human_choice <= 2:
+    print(choices[human_choice])
+
+#For our computer choice with random.randint it will select a number between the two numbers provided.
+#As well as an if statement just like our human_choice
+
+#also noted in both our computer_choice and human_choice we will print out our ASCII art with a print statement
+#we will tap back into our list that we created, with print(choices[computer_choice]) lets say if the number selected is
+#0 , rock will be printed out since it is the first selection in our list.
+
+computer_choice = random.randint(0, 2 )
+if computer_choice >= 0 and computer_choice <= 2:
+    print(choices[computer_choice])
+
+#Here is the "heavy lifting" of the code which boils down to what will be printed out depending on the math
+#There are in total 9 outcomes including ties with the 10th being if a number outside the range was selected.
+
+if computer_choice == 0 and human_choice == 0:
+    print("There is a tie")
+elif computer_choice == 0 and human_choice == 1:
+    print("Paper beats rock, humans win")
+elif computer_choice == 0 and human_choice == 2:
+    print("Rock beats scissors computer wins")
+elif computer_choice == 1 and human_choice == 1:
+    print("There is a tie")
+elif computer_choice == 1 and human_choice == 2:
+    print("Scissors beats paper, humans win")
+elif computer_choice == 1 and human_choice == 0:
+    print("Paper beats rock, computer win")
+elif computer_choice == 2 and human_choice == 0:
+    print("Rock beats scissors, human win")
+elif computer_choice == 2 and human_choice == 1:
+    print("Scissor beats paper, computer win")
+elif computer_choice == 2 and human_choice == 2:
+    print("There is a tie")
+else:
+    print("nobody won")
