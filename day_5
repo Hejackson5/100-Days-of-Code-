@@ -1,0 +1,46 @@
+import random
+#two lists one for letters the other for numbers. The selection could be increased with upper cae letters more numbers as well as special characters
+
+letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+numbers = ['1', '2', '3', '4' , '5']
+
+#this is an introduction with our welcome statement
+
+print("Welcome to the password generator \nWe will create an authentic password for you")
+
+#Two variables for how many characters will be selected from our lists
+
+letter_count = int(input("How many letters are in this password? "))
+number_count = int(input("How many numbers are in this password "))
+
+#We will store our characters in this password_list, each character will be added in seperately
+#we will hold our random characters in this password_list variable
+
+password_list = []
+
+#These are our for loops that will interact with our initial lists
+#we are using the range function in the for loop, with variable a being 0 and the second variable being letter_count
+#with our password_list variable being empty we will use the += with the random.choice function(letters)
+#its pretty awesome the workings behind it, if we select 6 from our letter count input. The loop will go through
+#using the random.choice(letters) it will pick 6 random choices from the letters list
+#the same will be done for the numbers list
+
+for char in range(0, letter_count):
+    password_list += random.choice(letters)
+
+for char in range(0, number_count):
+    password_list += random.choice(numbers)
+
+#next we need to print out our results in a string format, first we will need to shuffle the characters in our
+#password_list shuffle. the random.shuffle function will do that for us. The next step is adding another variable
+#with the password variable we will leave it empty. Now with this last for loop we will pull from the password_list list
+#now we will use the password variable with += to add all of the characters in a printable format
+
+random.shuffle(password_list)
+password = ""
+for char in password_list:
+    password += char
+
+#finally we will print out our text
+
+print(password)
