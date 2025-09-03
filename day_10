@@ -1,0 +1,55 @@
+def add(n1, n2):
+    return n1 + n2
+
+def sub(n1, n2):
+    return n1 - n2
+
+def divide(n1, n2):
+    return n1 / n2
+
+def multiply(n1, n2):
+    return n1 * n2
+
+operations = {"x": add,
+              "-": sub,
+              "/": divide,
+              "*": multiply }
+
+def calculator():
+    print(""" _____________________
+|  _________________  |
+| | JO           0. | |
+| |_________________| |
+|  ___ ___ ___   ___  |
+| | 7 | 8 | 9 | | + | |
+| |___|___|___| |___| |
+| | 4 | 5 | 6 | | - | |
+| |___|___|___| |___| |
+| | 1 | 2 | 3 | | x | |
+| |___|___|___| |___| |
+| | . | 0 | = | | / | |
+| |___|___|___| |___| |
+|_____________________|""")
+    
+    num1 = float(input("What is the first number you would like to use: \n"))
+    should_accumulate = True
+    while should_accumulate:
+
+
+        operation_symbol = input("What operator would you need to use: \n")
+        num2 = float(input("What is the second number you would like to use: \n"))
+        answer = operations[operation_symbol](num1, num2)
+        print(f'{num1} {operation_symbol} {num2} = {answer}')
+
+        check = input(f"Type 'y' to conintue calculating with {answer}, or type 'n' to start over")
+
+        if check == 'y':
+            num1 = answer
+
+        else:
+            should_accumulate = False
+            print("\n" * 20)
+            calculator()
+
+calculator()
+
